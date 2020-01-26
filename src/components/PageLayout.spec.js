@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import PageLayout from './PageLayout';
 
 describe('PageLayout', () => {
 
-    const wrapper = mount(<PageLayout/>);
+    const wrapper = shallow(<PageLayout/>);
     const instance = wrapper.instance();
 
     it('shoulld render without failure', () => {
