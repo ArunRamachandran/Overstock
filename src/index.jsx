@@ -4,14 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './store/configStore';
 import { ThemeProvider } from '@material-ui/styles';
 import { Provider } from 'react-redux';
-import App from './App.jsx';
-
+import PageLayout from './components/PageLayout';
 
 ReactDOM.render((
     <Provider store={ store }>
         <BrowserRouter>
             <ThemeProvider>
-                <App/>
+                <PageLayout/>
             </ThemeProvider>
         </BrowserRouter>
     </Provider>
