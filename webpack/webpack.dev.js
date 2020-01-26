@@ -52,5 +52,6 @@ module.exports = {
     compress: true,
     hot: true,
   },
+  devtool: 'inline-source-map',
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };
