@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/PageLayout.jsx</title>
+    <title>Code coverage report for src/routes/MainRouter.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -18,7 +18,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> PageLayout.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/routes</a> MainRouter.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -69,9 +69,7 @@
 <a name='L11'></a><a href='#L11'>11</a>
 <a name='L12'></a><a href='#L12'>12</a>
 <a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L14'></a><a href='#L14'>14</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -85,20 +83,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import Header from './Header';
-import MainRouter from '../routes/MainRouter';
-import './page-layout.less';
-export default class PageLayout extends Component {
+import { Switch, Route } from 'react-router-dom';
+import Home from '../containers/Home';
 &nbsp;
-    render() {
+export default class MainRouter extends Component {
+    render () {
         return (
-            &lt;div className="overstock-page-container"&gt;
-                &lt;Header/&gt;
-                &lt;MainRouter/&gt;
-            &lt;/div&gt;
+            &lt;Switch&gt;
+                    &lt;Route exact path="/" component={Home}/&gt;
+            &lt;/Switch&gt;
         )
     }
-}</pre></td></tr></table></pre>
+}
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

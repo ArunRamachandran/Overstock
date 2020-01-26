@@ -16,16 +16,22 @@ export default class Header extends Component {
             menuButton: {
               marginRight: theme.spacing(2),
             },
+            toolbar: {
+                minHeight: 128,
+                alignItems: 'flex-start',
+                paddingTop: theme.spacing(1),
+                paddingBottom: theme.spacing(2),
+              }
           }));
         return (
             <div className={classes.root}>
                 <AppBar position="static">
-                    <Toolbar variant="dense">
+                    <Toolbar className={classes.toolbar} variant="dense">
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" color="inherit">
-                        Photos
+                        Overstock - React app
                     </Typography>
                     </Toolbar>
                 </AppBar>
