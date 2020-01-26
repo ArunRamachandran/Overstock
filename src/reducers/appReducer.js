@@ -16,7 +16,7 @@ const appState = ( state = initialState, action ) => {
             return {
                 ...state,
                 isLoader: false,
-                data: (state.data || []).concat([action.payload.data])
+                data: [...state.data, payload.data]
             }
 
         case Constans.FETCH_DATA_FAILRE:

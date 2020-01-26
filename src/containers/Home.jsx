@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import store from '../store/configStore';
 import { fetchData } from '../actions'
-
+import ProductList from '../components/ProductList';
 class Home extends Component {
 
     componentDidMount() {
@@ -13,11 +13,7 @@ class Home extends Component {
     render() {
         return (
             <div className="home-page">
-                {
-                    this.props.isLoader ? 
-                        <CircularProgress/>
-                        : <h1>Data loaded</h1>
-                }
+                {   this.props.isLoader ? <CircularProgress/> : <ProductList data={this.props.data}/> }
             </div>
         )
     }
