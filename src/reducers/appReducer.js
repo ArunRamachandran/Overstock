@@ -2,7 +2,8 @@ import * as Constans from '../constants/constant';
 
 const initialState = {
     pageIndex: 1,
-    data: []
+    data: [],
+    favourites: []
 };
 
 const appState = ( state = initialState, action ) => {
@@ -33,6 +34,24 @@ const appState = ( state = initialState, action ) => {
             return {
                 ...state,
                 selectedProduct: payload
+            }
+
+        case Constans.ADD_TO_FAVOURITES:
+            return {
+                ...state,
+                favourites: [...state.favourites, payload]
+            }
+
+        case Constans.REMOVE_FROM_FAVOURITES:
+            return {
+                ...state,
+                favourites: state.favourites.filter((item) => item !== payload)
+            }
+
+        case Constans.LIST_FAVOURITES:
+            return {
+                ...state,
+                isFavouritesEnabled: true
             }
 
         default:

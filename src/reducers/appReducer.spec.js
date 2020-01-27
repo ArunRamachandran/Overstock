@@ -7,7 +7,8 @@ describe('appReducer unit test coverage', () => {
     it('should return initial state', () => {
         const expectedState = {
             pageIndex: 1,
-            data: []
+            data: [],
+            favourites: []
         };
         expect(appReducer(undefined, {})).toEqual(expectedState);
     })
@@ -31,7 +32,8 @@ describe('appReducer unit test coverage', () => {
         };
         const appState = {
             pageIndex: 1,
-            data: []
+            data: [],
+            favourites: []
         }
         expect(appReducer(appState, spyAction)).toEqual({
             isLoader: false,
