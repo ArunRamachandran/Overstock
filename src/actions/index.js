@@ -18,6 +18,11 @@ export const fetchData = (pageIndex) => {
     }
 }
 
+export const navigateToDashboard = (productData) => ({
+    type: Constants.NAVIGATE_TO_DASHBOARD,
+    payload: productData
+})
+
 const fetchDataBegins = () => ({
     type: Constants.FETCH_DATA_BEGINS
 })

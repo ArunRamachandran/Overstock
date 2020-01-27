@@ -5,36 +5,38 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Button from '@material-ui/core/Button';
+import './page-layout.less';
 
 export default class Header extends Component {
 
     render() {
         const classes = makeStyles(theme => ({
             root: {
-              flexGrow: 1,
-            },
-            menuButton: {
-              marginRight: theme.spacing(2),
-            },
-            toolbar: {
-                minHeight: 128,
-                alignItems: 'flex-start',
-                paddingTop: theme.spacing(1),
-                paddingBottom: theme.spacing(2),
+                flexGrow: 1,
+              },
+              menuButton: {
+                marginRight: theme.spacing(2),
+              },
+              title: {
+                flexGrow: 1,
               }
           }));
         return (
             <div className={classes.root}>
-                <AppBar position="static">
-                    <Toolbar className={classes.toolbar} variant="dense">
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" color="inherit">
-                        Overstock - React app
-                    </Typography>
-                    </Toolbar>
-                </AppBar>
+                <div className={classes.root}>
+                    <AppBar position="static">
+                        <Toolbar>
+                            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography variant="h6" className={classes.title}>
+                                React app
+                            </Typography>
+                            <Button color="inherit" className='app-header-fav-icon'>Favouites</Button>
+                        </Toolbar>
+                    </AppBar>
+                </div>
             </div>
         )
     }

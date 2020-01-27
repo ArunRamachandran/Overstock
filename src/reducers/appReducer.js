@@ -16,13 +16,19 @@ const appState = ( state = initialState, action ) => {
             return {
                 ...state,
                 isLoader: false,
-                data: [...state.data, payload.data]
+                data: payload
             }
 
         case Constans.FETCH_DATA_FAILRE:
             return {
                 ...state,
                 isLoader: false
+            }
+
+        case Constans.NAVIGATE_TO_DASHBOARD:
+            return {
+                ...state,
+                selectedProduct: payload
             }
 
         default:
