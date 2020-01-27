@@ -33,5 +33,5 @@ const fetchDataSuccess = response => ({
 })
 
 const fetchDataFailure = () => ({
-    type: Constants.FETCH_DATA_FAILRE
+    type: Constants.FETCH_DATA_FAILURE
 })

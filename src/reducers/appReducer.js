@@ -19,7 +19,7 @@ const appState = ( state = initialState, action ) => {
                 data: payload
             }
 
-        case Constans.FETCH_DATA_FAILRE:
+        case Constans.FETCH_DATA_FAILURE:
             return {
                 ...state,
                 isLoader: false
