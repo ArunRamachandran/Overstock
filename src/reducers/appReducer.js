@@ -1,6 +1,9 @@
 import * as Constans from '../constants/constant';
 
-const initialState = {};
+const initialState = {
+    pageIndex: 1,
+    data: []
+};
 
 const appState = ( state = initialState, action ) => {
     const { type, payload } = action;
@@ -16,7 +19,8 @@ const appState = ( state = initialState, action ) => {
             return {
                 ...state,
                 isLoader: false,
-                data: payload
+                data: [...state.data, ...payload.response],
+                pageIndex: payload.pageIndex
             }
 
         case Constans.FETCH_DATA_FAILURE:

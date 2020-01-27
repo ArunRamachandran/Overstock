@@ -43,8 +43,9 @@ export default class ProductList extends Component {
                     <GridList cellHeight={180} className={classes.gridList} cols={6} spacing={10}>
                         {this.props.data && this.props.data.map((item) => (
                             <GridListTile key={item.id} onClick={() => this.props.onClickHandler(item)}>
-                                <img src={item.image_url} alt={item.name}/>
+                                <img src={item.image_url} alt={item.name} key={item.id}/>
                                 <GridListTileBar
+                                    key={item.id}
                                     title={item.name}
                                     subtitle={<span>{item.tagline}</span>}
                                     actionIcon={
@@ -57,7 +58,9 @@ export default class ProductList extends Component {
                         ))}
                     </GridList>
                 </div>
-                {/*this.props.data && this.createProductFragment(this.props.data)*/}
+                <div className="additional-data-placeholder">
+                    <a onClick={this.props.loadMoreproducts}>Load more products</a>
+                </div>
             </div>
         )
     }

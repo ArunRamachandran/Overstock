@@ -7,7 +7,7 @@ import ProductList from '../components/ProductList';
 class Home extends Component {
 
     componentDidMount() {
-        this.props.fetchData();
+        this.props.data && !this.props.data.length && this.props.fetchData();
     }
 
     handleProductDetails = (product) => {
@@ -15,12 +15,19 @@ class Home extends Component {
         this.props.navigateToDashboard(product);
     }
 
+    loadMoreproducts = () => {
+        this.props.fetchData(this.props.pageIndex + 1)
+    }
+
     render() {
         return (
             <div className="home-page">
                 {   this.props.isLoader ? 
                     <CircularProgress/> : 
-                    <ProductList data={this.props.data} onClickHandler={this.handleProductDetails}/> 
+                    <ProductList 
+                        data={this.props.data} 
+                        onClickHandler={this.handleProductDetails}
+                        loadMoreproducts={this.loadMoreproducts}/> 
                 }
             </div>
         )
@@ -29,11 +36,12 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
     isLoader: state.appState.isLoader ? state.appState.isLoader: false,
-    data: state.appState.data
+    data: state.appState.data,
+    pageIndex: state.appState.pageIndex
 })
 
 const mapDispatchToProps = dispatch => ({
-    fetchData: (pageNumber) => store.dispatch(fetchData(pageNumber)),
+    fetchData: (pageIndex) => store.dispatch(fetchData(pageIndex)),
     navigateToDashboard: (product) => store.dispatch(navigateToDashboard(product))
 })
 

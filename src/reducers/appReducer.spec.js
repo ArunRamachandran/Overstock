@@ -5,7 +5,11 @@ import * as Constants from '../constants/constant';
 describe('appReducer unit test coverage', () => {
     
     it('should return initial state', () => {
-        expect(appReducer(undefined, {})).toEqual({});
+        const expectedState = {
+            pageIndex: 1,
+            data: []
+        };
+        expect(appReducer(undefined, {})).toEqual(expectedState);
     })
 
     it('should returns page loader when the api call begins', () => {
@@ -20,11 +24,19 @@ describe('appReducer unit test coverage', () => {
     it('should handle api call success action dispatched', () => {
         const spyAction = {
             type: Constants.FETCH_DATA_SUCCESS,
-            payload: [{'id': 1, 'product': 'xyz'}, {'id': 2, 'product': 'abc'}]
+            payload: {
+                pageIndex: 1,
+                response: [{'id': 1, 'product': 'xyz'}, {'id': 2, 'product': 'abc'}]
+            }
         };
-        expect(appReducer({}, spyAction)).toEqual({
+        const appState = {
+            pageIndex: 1,
+            data: []
+        }
+        expect(appReducer(appState, spyAction)).toEqual({
             isLoader: false,
-            data: spyAction.payload
+            data: spyAction.payload.response,
+            pageIndex: spyAction.payload.pageIndex
         })
     })
 

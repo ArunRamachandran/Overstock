@@ -6,10 +6,11 @@ export const fetchData = (pageIndex) => {
         dispatch(fetchDataBegins());
         return request
             .get(Constants.URL)
-            .query({ page: 2, per_page: 20})
+            .query({ page: pageIndex ? pageIndex : 1, per_page: 20})
             .then(res => {
                 console.log("----> data: ", res.body);
-                dispatch(fetchDataSuccess(res.body));
+                const index = pageIndex ? pageIndex : 1;
+                dispatch(fetchDataSuccess(res.body, index));
                 return res.body;
             })
             .catch( error => {
@@ -23,13 +24,16 @@ export const navigateToDashboard = (productData) => ({
     payload: productData
 })
 
-const fetchDataBegins = () => ({
+export const fetchDataBegins = () => ({
     type: Constants.FETCH_DATA_BEGINS
 })
 
-const fetchDataSuccess = response => ({
+const fetchDataSuccess = (response, pageIndex) => ({
     type: Constants.FETCH_DATA_SUCCESS,
-    payload: response
+    payload: {
+        response,
+        pageIndex
+    }
 })
 
 const fetchDataFailure = () => ({
