@@ -5,6 +5,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarIcon from '@material-ui/icons/Star';
 import './product-list.less';
 
 export default class ProductList extends Component {
@@ -42,15 +43,18 @@ export default class ProductList extends Component {
                 <div className={classes.root}>
                     <GridList cellHeight={180} className={classes.gridList} cols={6} spacing={10}>
                         {this.props.data && this.props.data.map((item) => (
-                            <GridListTile key={item.id} onClick={() => this.props.onClickHandler(item)}>
-                                <img src={item.image_url} alt={item.name} key={item.id}/>
+                            <GridListTile key={item.id}>
+                                <img src={item.image_url} alt={item.name} onClick={() => this.props.onClickHandler(item)}/>
                                 <GridListTileBar
-                                    key={item.id}
                                     title={item.name}
                                     subtitle={<span>{item.tagline}</span>}
                                     actionIcon={
                                         <IconButton aria-label={`keep ${item.name} as your favourite`} className={classes.icon}>
-                                            <StarBorderIcon style={{color: 'white'}}/>
+                                            {
+                                                this.props.favourites.indexOf(item.id) > -1 ?
+                                                    <StarIcon style={{color: 'white'}} onClick={() => this.props.handleUserFavouritesList(item.id)}/>
+                                                    : <StarBorderIcon style={{color: 'white'}} onClick={() => this.props.handleUserFavouritesList(item.id)}/>
+                                            }
                                         </IconButton>
                                     }
                                 />
