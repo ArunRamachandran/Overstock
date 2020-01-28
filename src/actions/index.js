@@ -6,9 +6,8 @@ export const fetchData = (pageIndex) => {
         dispatch(fetchDataBegins());
         return request
             .get(Constants.URL)
-            .query({ page: pageIndex ? pageIndex : 1, per_page: 20})
+            .query({ page: pageIndex ? pageIndex : 1, per_page: 80})
             .then(res => {
-                console.log("----> data: ", res.body);
                 const index = pageIndex ? pageIndex : 1;
                 dispatch(fetchDataSuccess(res.body, index));
                 return res.body;
