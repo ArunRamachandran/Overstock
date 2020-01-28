@@ -1,6 +1,12 @@
 # Application overview
 A react-redux application which is utilizing Punk API to listdown the products & manages user favourites list.
 
+### Continuous Integration
+Link to access Travis CI dashboard : 
+```
+https://travis-ci.org/ArunRamachandran/Overstock
+```
+
 ## Getting started
 
 These instructions will get get you a copy of the project up and running on your local machine for development and testing purpose. See the instructions given below to run & validate sample outputs against the given set of inputs.
