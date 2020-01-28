@@ -38,7 +38,8 @@ describe('appReducer unit test coverage', () => {
         expect(appReducer(appState, spyAction)).toEqual({
             isLoader: false,
             data: spyAction.payload.response,
-            pageIndex: spyAction.payload.pageIndex
+            pageIndex: spyAction.payload.pageIndex,
+            favourites: []
         })
     })
 

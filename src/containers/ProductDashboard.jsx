@@ -33,12 +33,15 @@ class ProductDashboard extends Component {
           }));
 
         return (
-            <div className={classes.root}>
+            <div className={classes.root} style={{marginTop: '10px'}}>
                 <Paper className={classes.paper}>
                     <Grid container spacing={2}>
                     <Grid item>
                         <ButtonBase className={classes.image}>
-                        <img className={classes.img} alt="complex" src={data.image_url} />
+                        <img className={classes.img} 
+                            alt="complex" 
+                            style={{maxHeight: '100%', maxWidth: '100%'}}
+                            src={data.image_url} />
                         </ButtonBase>
                     </Grid>
                     <Grid item xs={12} sm container>
@@ -58,9 +61,9 @@ class ProductDashboard extends Component {
                             </Typography>
                         </Grid>
                         <Grid item>
-                            <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                            {/*<Typography variant="body2" style={{ cursor: 'pointer' }}>
                                 Remove from favourites
-                            </Typography>
+                            </Typography>*/}
                         </Grid>
                         </Grid>
                         <Grid item>

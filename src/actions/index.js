@@ -24,6 +24,16 @@ export const navigateToDashboard = (productData) => ({
     payload: productData
 })
 
+export const addToFavouritesList = (productID) => ({
+    type: Constants.ADD_TO_FAVOURITES,
+    payload: productID
+});
+
+export const removeFromFavouritesList = (productID) => ({
+    type: Constants.REMOVE_FROM_FAVOURITES,
+    payload: productID
+})
+
 export const fetchDataBegins = () => ({
     type: Constants.FETCH_DATA_BEGINS
 })

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import store from '../store/configStore';
-import { fetchData, navigateToDashboard } from '../actions'
+import { fetchData, navigateToDashboard, addToFavouritesList, removeFromFavouritesList } from '../actions'
 import ProductList from '../components/ProductList';
 class Home extends Component {
 
@@ -19,6 +19,14 @@ class Home extends Component {
         this.props.fetchData(this.props.pageIndex + 1)
     }
 
+    handleUserFavouritesList = (productID) => {
+       if (this.props.favourites.indexOf(productID) > -1) {
+            this.props.removeFromFavouritesList(productID)
+       } else {
+           this.props.addToFavouritesList(productID)
+       }
+    }
+
     render() {
         return (
             <div className="home-page">
@@ -27,7 +35,9 @@ class Home extends Component {
                     <ProductList 
                         data={this.props.data} 
                         onClickHandler={this.handleProductDetails}
-                        loadMoreproducts={this.loadMoreproducts}/> 
+                        loadMoreproducts={this.loadMoreproducts}
+                        favourites={this.props.favourites}
+                        handleUserFavouritesList={this.handleUserFavouritesList}/> 
                 }
             </div>
         )
@@ -37,12 +47,15 @@ class Home extends Component {
 const mapStateToProps = state => ({
     isLoader: state.appState.isLoader ? state.appState.isLoader: false,
     data: state.appState.data,
-    pageIndex: state.appState.pageIndex
+    pageIndex: state.appState.pageIndex,
+    favourites: state.appState.favourites
 })
 
 const mapDispatchToProps = dispatch => ({
     fetchData: (pageIndex) => store.dispatch(fetchData(pageIndex)),
-    navigateToDashboard: (product) => store.dispatch(navigateToDashboard(product))
+    navigateToDashboard: (product) => store.dispatch(navigateToDashboard(product)),
+    addToFavouritesList: (productID) => store.dispatch(addToFavouritesList(productID)),
+    removeFromFavouritesList: (productID) => store.dispatch(removeFromFavouritesList(productID))
 })
 
 export default connect(

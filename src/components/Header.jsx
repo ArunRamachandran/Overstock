@@ -33,7 +33,7 @@ export default class Header extends Component {
                             <Typography variant="h6" className={classes.title}>
                                 React app
                             </Typography>
-                            <Button color="inherit" className='app-header-fav-icon'>Favouites</Button>
+                            <Button color="inherit" style={{marginLeft: 'auto'}}>Favouites</Button>
                         </Toolbar>
                     </AppBar>
                 </div>

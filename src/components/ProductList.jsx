@@ -39,7 +39,7 @@ export default class ProductList extends Component {
         }));
 
         return (
-            <div className="overstock-product-list">
+            <div className="overstock-product-list" style={{marginTop: '10px'}}>
                 <div className={classes.root}>
                     <GridList cellHeight={180} className={classes.gridList} cols={6} spacing={10}>
                         {this.props.data && this.props.data.map((item) => (
