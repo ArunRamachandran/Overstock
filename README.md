@@ -25,6 +25,7 @@ A step by step series of examples that tell you how to get a development env run
 * run the code locally
 ```
  npm run start
+ ```
  
  ### Running the tests
 
