@@ -38,7 +38,6 @@ A step by step series of examples that tell you how to get a development env run
 ```
  npm run test
 ```
-This will run the unit tests in watch mode. 
 
 ### Production build
 
